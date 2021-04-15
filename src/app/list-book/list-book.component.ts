@@ -25,11 +25,13 @@ export class ListBookComponent implements OnInit {
   }
 
   deleteBook(id: any){
-    this.bookService.deleteBook(id).subscribe(() => {
-      this.getAllBook();
-      this.router.navigate(['/']);
-    });
-
+    if (confirm ('You want delete?')) {
+      this.bookService.deleteBook(id).subscribe(() => {
+        this.getAllBook();
+        this.router.navigate(['/']);
+      });  
+    }
+  
   }
 
   
